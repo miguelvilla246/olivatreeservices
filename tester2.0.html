@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Oliva's Tree Service | Land Clearing, Tree Cutting, Junk Removal & Removal</title>
+    <meta name="description" content="Professional tree removal, land clearing, stump grinding, junk removal, and arborist services. Licensed and insured tree care experts. Get a free quote today.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-green: #2E5D32;
+            --accent-green: #4CAF50;
+            --deep-brown: #3E2723;
+            --soft-brown: #8D6E63;
+            --cream-bg: #F9F9F4;
+            --light-green-bg: #E8F5E9;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-brown);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a:not(.cta-btn):hover { color: var(--primary-green); }
+
+        .cta-btn {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover { background-color: var(--deep-brown); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(46, 93, 50, 0.8), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--white); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; }
+
+        .hero-btn {
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: 2px solid var(--accent-green);
+        }
+
+        .hero-btn:hover { background-color: transparent; border-color: var(--white); }
+
+        /* --- SERVICES SECTION (UPDATED LAYOUT) --- */
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary-green); margin-bottom: 10px; }
+
+        /* Using Flexbox + Wrap + Justify Center 
+           This ensures 5 items are centered (3 top, 2 centered bottom)
+        */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-bottom: 4px solid var(--soft-brown);
+            transition: transform 0.3s;
+            
+            /* Controls width */
+            flex: 1 1 300px; /* Grow, Shrink, Base width */
+            max-width: 350px; /* Prevents them from getting too wide on huge screens */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card:hover { transform: translateY(-5px); border-bottom-color: var(--primary-green); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* --- WHY CHOOSE US --- */
+        .why-us {
+            background-color: var(--deep-brown);
+            color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .why-text { flex: 1; min-width: 300px; }
+        .why-text h2 { color: var(--white); margin-bottom: 20px; }
+        
+        .why-stats { flex: 1; display: flex; gap: 20px; justify-content: center; }
+        .stat-box { background: rgba(255, 255, 255, 0.1); padding: 20px; text-align: center; border-radius: 8px; }
+
+        /* --- QUOTE FORM SECTION --- */
+        .quote-section {
+            padding: 80px 20px;
+            background-color: var(--light-green-bg);
+            border-top: 1px solid #ddd;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .quote-container h2 { text-align: center; margin-bottom: 10px; color: var(--primary-green); }
+        .quote-container p { text-align: center; margin-bottom: 30px; color: var(--text-light); }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+        .full-width { grid-column: span 2; }
+
+        label { font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; color: var(--deep-brown); }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: #fafafa;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background-color: #fff;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover { background-color: var(--deep-brown); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-green);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-col ul li { margin-bottom: 10px; }
+        
+        .footer-col ul li a { transition: color 0.3s; }
+        .footer-col ul li a:hover { color: var(--accent-green); padding-left: 5px; }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="Tree.png" alt="Oliva's Tree Service Logo" class="logo-img">
+                <div class="logo-text">Oliva's Tree Service</div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Get Quote</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Safe & Reliable Tree Cutting</h1>
+            <p>Professional tree removal, trimming, and emergency storm cleanup services. Fully Licensed & Insured Arborists.</p>
+            <a href="#contact" class="hero-btn">Get Free Quote</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Complete Tree Care Services</h2>
+            <p>We handle everything from precision pruning to large scale lot clearing and junk removal.</p>
+        </div>
+
+        <div class="services-grid">
+            <article class="service-card">
+                <span class="service-icon">🌲</span>
+                <h3>Tree Removal</h3>
+                <p>Expert removal of dead, dying, or hazardous trees using crane-assisted technology for zero property damage.</p>
+            </article>
+
+            <article class="service-card">
+                <span class="service-icon">✂️</span>
+                <h3>Tree Trimming</h3>
+                <p>Promote healthy growth and improve your landscape's aesthetic with ANSI A300 standard pruning.</p>
+            </article>
+
+            <article class="service-card">
+                <span class="service-icon">🚜</span>
+                <h3>Stump Grinding</h3>
+                <p>We grind stumps below the surface and can fill the area with topsoil and seed.</p>
+            </article>
+
+            <article class="service-card">
+                <span class="service-icon">🏞️</span>
+                <h3>Land Clearing</h3>
+                <p>Comprehensive lot clearing for new construction or property expansion. Brush removal and site prep.</p>
+            </article>
+
+            <article class="service-card">
+                <span class="service-icon">🌪️</span>
+                <h3>Storm Cleanup</h3>
+                <p>24/7 Emergency response for fallen trees on houses, driveways, or power lines.</p>
+            </article>
+
+            <article class="service-card">
+                <span class="service-icon">🗑️</span>
+                <h3>Junk Removal</h3>
+                <p>Fast and efficient removal of yard waste, debris, and unwanted items from your property.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="why-us" id="about">
+            <div class="why-container">
+                <div class="why-text">
+                    <span style="color: var(--accent-green); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Family Owned & Operated</span>
+                    <h2 style="margin-top: 10px;">Meet Jose Oliva</h2>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                        Hello! I'm <strong>Jose Oliva</strong>, the owner and founder of Oliva's Tree Service.
+                    </p>
+                    <p>
+                        We are a small, <strong>family-owned business</strong> built on a simple promise: we treat your property with the same care and respect as our own. When you hire us, you aren't just getting a contractor; you're getting a neighbor who cares about the details.
+                    </p>
+                    <p>
+                        Whether we are removing a hazardous tree or clearing out junk, my goal is to leave every customer completely happy with the result. We pride ourselves on safety, precision, and leaving your yard cleaner than we found it.
+                    </p>
+                    
+                    <br>
+                    
+                    <div style="border-left: 4px solid var(--accent-green); padding-left: 20px; background: rgba(255,255,255,0.05); padding: 15px;">
+                        <h4 style="color: var(--white); margin-bottom: 10px;">Our Family Promise:</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 8px;">✅ <strong>Attention to Detail:</strong> No rushed jobs. We take our time to do it right.</li>
+                            <li style="margin-bottom: 8px;">✅ <strong>Respectful Service:</strong> We protect your lawn, fences, and home.</li>
+                            <li>✅ <strong>Customer Satisfaction:</strong> We don't leave until you are happy.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-stats">
+                    <div class="stat-box">
+                        <h3>100%</h3>
+                        <h3>Commitment</h3>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Licensed</h3>
+                        <h3>& Insured</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section class="quote-section" id="contact">
+        <div class="quote-container">
+            <h2>Request a Free Quote </h2>
+             <h2>or</h2> 
+            <h2>Text/Call (203)807-1386</h2>
+
+            <p>Fill out the form below and we will contact you within 24 hours for an estimate.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="address">Property Address (for estimate)</label>
+                        <input type="text" id="address" name="address" placeholder="123 Maple Street" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="service">Type of Service Needed</label>
+                        <select id="service" name="service">
+                            <option value="removal">Tree Removal</option>
+                            <option value="trimming">Tree Trimming / Pruning</option>
+                            <option value="stump">Stump Grinding</option>
+                            <option value="clearing">Land Clearing</option>
+                            <option value="storm">Emergency Storm Damage</option>
+                            <option value="junk">Junk Removal</option>
+                            <option value="other">Other / Unsure</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Describe the tree location, size, or any specific concerns..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn full-width">Send Request</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Oliva's Tree Service</h4>
+                <p>Safe, affordable, and local tree care.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Tree Removal</a></li>
+                    <li><a href="#services">Land Clearing</a></li>
+                    <li><a href="#services">Stump Grinding</a></li>
+                    <li><a href="#services">Tree Trimming</a></li>
+                    <li><a href="#services">Junk Removal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Service Areas</h4>
+                <p>Proudly serving:</p>
+                <ul>
+                    <li>New Haven Country</li>
+                    <li>Fairfield County</li>
+                    <li>Middlesex County</li>
+                    <li>New London County</li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📞 (203) 807-1386</li>
+                    <li>📧 olivajose300@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Oliva's Tree Service. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
