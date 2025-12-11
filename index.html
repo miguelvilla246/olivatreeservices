@@ -411,16 +411,15 @@
             </div>
         </section>
 
-    <section class="quote-section" id="contact">
+ <section class="quote-section" id="contact">
         <div class="quote-container">
-            <h2>Request a Free Quote </h2>
-             <h2>or</h2> 
-            <h2>Text/Call (203)807-1386</h2>
-
+            <h2>Request a Free Quote</h2>
             <p>Fill out the form below and we will contact you within 24 hours for an estimate.</p>
             
-            <form action="#" method="POST">
-                <div class="form-grid">
+            <form action="https://formsubmit.co/olivajose300@gmail.com" method="POST">
+                
+                <input type="hidden" name="_subject" value="New Quote Request - Oliva's Tree Service">
+                <input type="hidden" name="_captcha" value="false"> <div class="form-grid">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -433,25 +432,25 @@
 
                     <div class="form-group full-width">
                         <label for="address">Property Address (for estimate)</label>
-                        <input type="text" id="address" name="address" placeholder="123 Maple Street" required>
+                        <input type="text" id="address" name="Address" placeholder="123 Maple Street" required>
                     </div>
 
                     <div class="form-group full-width">
                         <label for="service">Type of Service Needed</label>
-                        <select id="service" name="service">
-                            <option value="removal">Tree Removal</option>
-                            <option value="trimming">Tree Trimming / Pruning</option>
-                            <option value="stump">Stump Grinding</option>
-                            <option value="clearing">Land Clearing</option>
-                            <option value="storm">Emergency Storm Damage</option>
-                            <option value="junk">Junk Removal</option>
-                            <option value="other">Other / Unsure</option>
+                        <select id="service" name="Service Type">
+                            <option value="Tree Removal">Tree Removal</option>
+                            <option value="Tree Trimming">Tree Trimming / Pruning</option>
+                            <option value="Stump Grinding">Stump Grinding</option>
+                            <option value="Land Clearing">Land Clearing</option>
+                            <option value="Storm Damage">Emergency Storm Damage</option>
+                            <option value="Junk Removal">Junk Removal</option>
+                            <option value="Other">Other / Unsure</option>
                         </select>
                     </div>
 
                     <div class="form-group full-width">
                         <label for="notes">Additional Notes</label>
-                        <textarea id="notes" name="notes" rows="4" placeholder="Describe the tree location, size, or any specific concerns..."></textarea>
+                        <textarea id="notes" name="Message" rows="4" placeholder="Describe the tree location, size, or any specific concerns..."></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn full-width">Send Request</button>
